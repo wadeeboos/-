@@ -135,5 +135,52 @@ function caption(){
  document.getElementById('caption').textContent=templates[style];
 }
 </script>
+
+<section class="card" id="security-center">
+<h2>🛡️ مركز حماية الحسابات</h2>
+<p>فحص مبدئي للروابط ومساعدة في تأمين حساباتك.</p>
+
+<input id="checkLink" type="url"
+placeholder="ضع الرابط هنا"
+style="width:100%;padding:12px">
+
+<button onclick="checkSafety()">
+🔍 فحص الرابط
+</button>
+
+<p id="safetyResult"></p>
+
+<h3>🔐 حماية حسابك</h3>
+<p>فعّل المصادقة الثنائية، وراجع الأجهزة المتصلة.</p>
+
+<h3>🚨 استرجاع الحسابات</h3>
+<p><a href="https://www.instagram.com/hacked/">
+استرجاع إنستغرام</a></p>
+<p><a href="https://www.facebook.com/hacked">
+استرجاع فيسبوك</a></p>
+<p><a href="https://support.tiktok.com/">
+مساعدة تيك توك</a></p>
+<p><a href="https://accounts.google.com/signin/recovery">
+استرجاع حساب Google</a></p>
+</section>
+
+<script>
+function checkSafety() {
+ const input = document.getElementById("checkLink");
+ const output = document.getElementById("safetyResult");
+ try {
+  const u = new URL(input.value.trim());
+  if (!["https:", "http:"].includes(u.protocol))
+   throw new Error("protocol");
+  const secure = u.protocol === "https:";
+  output.textContent = secure
+   ? "🔎 الرابط يستخدم HTTPS، لكن هذا لا يضمن أنه آمن."
+   : "⚠️ الرابط لا يستخدم HTTPS. انتبه قبل فتحه.";
+ } catch(e) {
+  output.textContent = "❌ أدخل رابط HTTP أو HTTPS صحيحًا.";
+ }
+}
+</script>
+
 </body>
 </html>
