@@ -50,17 +50,6 @@ footer{text-align:center;color:#8e9fb8}
 <small>VERSION 3.0</small>
 </header>
 
-<div class="card">
-<h2>🔎 مولّد اليوزرات</h2>
-<select id="size">
-<option value="4">رباعي</option>
-<option value="5">خماسي</option>
-<option value="6">سداسي</option>
-</select>
-<button onclick="users()">توليد 20 يوزر</button>
-<div class="result" id="users"></div>
-<small>الأسماء مقترحة وليست مفحوصة.</small>
-</div>
 
 <div class="card">
 <h2># مولّد الهاشتاقات</h2>
@@ -179,6 +168,34 @@ function checkSafety() {
  } catch(e) {
   output.textContent = "❌ أدخل رابط HTTP أو HTTPS صحيحًا.";
  }
+}
+</script>
+
+
+<div class="card" id="password-tool">
+<h2>🔐 فحص قوة كلمة المرور</h2>
+<input type="password" id="passwordCheck"
+placeholder="اكتب كلمة مرور للتجربة">
+<button onclick="checkPassword()">فحص القوة</button>
+<div class="result" id="passwordResult"></div>
+<small>الفحص محلي ولا يتم إرسال كلمة المرور.</small>
+</div>
+<script>
+function checkPassword(){
+const p = document.getElementById("passwordCheck").value;
+let score = 0;
+if(p.length >= 12) score++;
+if(p.length >= 16) score++;
+if(/[A-Z]/.test(p)) score++;
+if(/[a-z]/.test(p)) score++;
+if(/[0-9]/.test(p)) score++;
+if(/[^A-Za-z0-9]/.test(p)) score++;
+
+document.getElementById("passwordResult").textContent =
+!p ? "أدخل كلمة مرور أولاً" :
+score >= 5 ? "🟢 كلمة مرور قوية مبدئياً" :
+score >= 3 ? "🟡 كلمة مرور متوسطة" :
+"🔴 كلمة مرور ضعيفة";
 }
 </script>
 
