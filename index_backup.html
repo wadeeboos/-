@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOCIAL MASTER PRO</title>
+<style>
+body {
+  background: #101525;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 25px;
+}
+h1 { color: #00e5ff; }
+button {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  margin: 15px 0;
+  background: #263653;
+  color: white;
+  border: 1px solid #00e5ff;
+  border-radius: 14px;
+  font-size: 19px;
+}
+#result {
+  padding: 20px;
+  color: #00e5ff;
+}
+</style>
+</head>
+<body>
+<h1>SOCIAL MASTER PRO</h1>
+<p>مساعدك الذكي للسوشال ميديا</p>
+<button onclick="openTool('Instagram')">📸 إنستغرام</button>
+<button onclick="openTool('TikTok')">🎵 تيك توك</button>
+<button onclick="openTool('Facebook')">🌐 فيسبوك</button>
+<button onclick="openTool('YouTube')">▶️ يوتيوب</button>
+<div id="result"></div>
+<script>
+function openTool(name) {
+ document.getElementById("result").textContent =
+ "تم اختيار " + name + " — الأدوات قيد التطوير";
+}
+</script>
+</body>
+</html>

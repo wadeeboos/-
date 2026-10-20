@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOCIAL MASTER PRO V3</title>
+<style>
+*{box-sizing:border-box}
+body{
+ background:#0c1222;color:white;
+ font-family:Arial,sans-serif;
+ margin:0;padding:18px;
+}
+header{text-align:center;padding:25px 0}
+h1{color:#00e5ff;font-size:29px}
+h2{font-size:20px}
+small{color:#aab9cc}
+.card{
+ background:#1b2943;
+ border:1px solid #344967;
+ border-radius:17px;
+ padding:18px;margin:16px 0;
+}
+button,input,select{
+ width:100%;padding:14px;
+ border-radius:10px;
+ margin:7px 0;font-size:16px;
+}
+button{
+ background:#00cde8;color:#061323;
+ border:0;font-weight:bold;
+}
+input,select{
+ background:#101b30;color:white;
+ border:1px solid #526780;
+}
+.result{
+ white-space:pre-wrap;
+ overflow-wrap:anywhere;
+ line-height:1.9;color:#78edff;
+}
+a{color:#78edff;display:block;margin:12px}
+footer{text-align:center;color:#8e9fb8}
+</style>
+</head>
+<body>
+<header>
+<h1>🚀 SOCIAL MASTER PRO</h1>
+<p>مساعد السوشال ميديا</p>
+<small>VERSION 3.0</small>
+</header>
+
+<div class="card">
+<h2>🔎 مولّد اليوزرات</h2>
+<select id="size">
+<option value="4">رباعي</option>
+<option value="5">خماسي</option>
+<option value="6">سداسي</option>
+</select>
+<button onclick="users()">توليد 20 يوزر</button>
+<div class="result" id="users"></div>
+<small>الأسماء مقترحة وليست مفحوصة.</small>
+</div>
+
+<div class="card">
+<h2># مولّد الهاشتاقات</h2>
+<input id="topic" placeholder="اكتب موضوع المنشور">
+<button onclick="hashtags()">توليد هاشتاقات</button>
+<div class="result" id="tags"></div>
+</div>
+
+<div class="card">
+<h2>✍️ مساعد الكابشنات</h2>
+<input id="captionTopic" placeholder="موضوع الفيديو">
+<select id="style">
+<option value="fun">حماسي</option>
+<option value="question">تفاعلي</option>
+<option value="simple">بسيط</option>
+</select>
+<button onclick="caption()">إنشاء كابشن</button>
+<div class="result" id="caption"></div>
+</div>
+
+<div class="card">
+<h2>🛡️ حماية الحسابات</h2>
+<p>فعّل المصادقة الثنائية.</p>
+<p>استخدم كلمة مرور مختلفة لكل حساب.</p>
+<p>راجع الأجهزة والتطبيقات المرتبطة.</p>
+<p>لا تشارك رموز تسجيل الدخول.</p>
+</div>
+
+<div class="card">
+<h2>🔑 استرجاع الحسابات</h2>
+<a href="https://www.instagram.com/hacked/" target="_blank" rel="noopener noreferrer">استرجاع إنستغرام</a>
+<a href="https://www.facebook.com/hacked" target="_blank" rel="noopener noreferrer">استرجاع فيسبوك</a>
+<a href="https://support.tiktok.com/" target="_blank" rel="noopener noreferrer">مساعدة تيك توك</a>
+<a href="https://accounts.google.com/signin/recovery" target="_blank" rel="noopener noreferrer">استرجاع حساب جوجل ويوتيوب</a>
+</div>
+
+<footer>SOCIAL MASTER PRO © 2026</footer>
+
+<script>
+function users(){
+ const len=Number(document.getElementById('size').value);
+ const chars='abcdefghijklmnopqrstuvwxyz0123456789';
+ const names=new Set();
+ while(names.size<20){
+  let name='';
+  for(let i=0;i<len;i++){
+   name+=chars[Math.floor(Math.random()*chars.length)];
+  }
+  names.add(name);
+ }
+ document.getElementById('users').textContent=
+ [...names].join('\n');
+}
+
+function hashtags(){
+ const topic=document.getElementById('topic').value.trim();
+ if(!topic){alert('اكتب الموضوع أولاً');return}
+ const tag=topic.replace(/\s+/g,'_').replace(/#/g,'');
+ document.getElementById('tags').textContent=
+ '#'+tag+' #محتوى #اكسبلور #ترند #فيديوهات #socialmedia';
+}
+
+function caption(){
+ const topic=document.getElementById('captionTopic').value.trim();
+ if(!topic){alert('اكتب الموضوع أولاً');return}
+ const style=document.getElementById('style').value;
+ const templates={
+ fun:`🔥 ${topic}\nمحتوى جديد يستاهل تشوفه!`,
+ question:`شو رأيكم في ${topic}؟ 🤔\nشاركونا آراءكم!`,
+ simple:`${topic} ✨\nتابعونا للمزيد.`
+ };
+ document.getElementById('caption').textContent=templates[style];
+}
+</script>
+</body>
+</html>

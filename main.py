@@ -1,0 +1,7 @@
+print("SOCIAL MASTER PRO")
+print("1. Instagram")
+print("2. TikTok")
+print("3. Facebook")
+print("4. YouTube")
+choice = input("Choose: ")
+print("You selected:", choice)

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOCIAL MASTER PRO V2</title>
+<style>
+body {
+ background:#101525;
+ color:white;
+ font-family:Arial,sans-serif;
+ text-align:center;
+ padding:20px;
+}
+h1 {color:#00e5ff}
+.card {
+ background:#202d49;
+ padding:20px;
+ border-radius:15px;
+ margin:15px 0;
+}
+button,select {
+ padding:15px;
+ margin:8px;
+ border-radius:10px;
+ border:1px solid #00e5ff;
+ background:#263653;
+ color:white;
+ font-size:17px;
+}
+button {cursor:pointer}
+#results {
+ line-height:2;
+ font-size:20px;
+ color:#00e5ff;
+ overflow-wrap:anywhere;
+}
+</style>
+</head>
+<body>
+<h1>SOCIAL MASTER PRO</h1>
+<p>الإصدار الثاني V2</p>
+<div class="card">
+<h2>مولّد اليوزرات</h2>
+<select id="length">
+<option value="4">رباعي</option>
+<option value="5">خماسي</option>
+</select>
+<button onclick="generate()">توليد 20 يوزر</button>
+<div id="results"></div>
+</div>
+<div class="card">
+<h2>المنصات المدعومة</h2>
+<p>Instagram | TikTok</p>
+<p>Facebook | YouTube</p>
+</div>
+<script>
+function generate(){
+ const len=Number(document.getElementById("length").value);
+ const chars="abcdefghijklmnopqrstuvwxyz0123456789";
+ const names=new Set();
+ while(names.size<20){
+  let name="";
+  for(let i=0;i<len;i++){
+   name+=chars[Math.floor(Math.random()*chars.length)];
+  }
+  names.add(name);
+ }
+ document.getElementById("results").textContent=
+ Array.from(names).join(" | ");
+}
+</script>
+<p>ملاحظة: اليوزرات مولّدة ولم يتم فحص توفرها.</p>
+</body>
+</html>

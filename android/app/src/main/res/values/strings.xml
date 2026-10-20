@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SOCIAL MASTER PRO</string>
+    <string name="title_activity_main">SOCIAL MASTER PRO</string>
+    <string name="package_name">com.socialmaster.pro</string>
+    <string name="custom_url_scheme">com.socialmaster.pro</string>
+</resources>

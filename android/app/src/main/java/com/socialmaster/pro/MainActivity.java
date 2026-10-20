@@ -1,0 +1,5 @@
+package com.socialmaster.pro;
+
+import com.getcapacitor.BridgeActivity;
+
+public class MainActivity extends BridgeActivity {}
